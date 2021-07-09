@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>半透明边框</title>
+    <style>
+      main {
+        width: 100%;
+        padding: 60px 80px 80px;
+        background: #b4a078;
+      }
+      div {
+        padding: 12px;
+        margin: 20px auto;
+        background: white;
+        /* hsla 即色相、饱和度、亮度、透明度（英语：Hue, Saturation, Lightness, Alpha ）
+        色相（H）是色彩的基本属性，就是平常所说的颜色名称，如红色、黄色等。
+        饱和度（S）是指色彩的纯度，越高色彩越纯，低则逐渐变灰，取 0-100% 的数值。
+        亮度（L） 取 0-100%，增加亮度，颜色会向白色变化；减少亮度，颜色会向黑色变化。
+        透明度（A） 取值 0~1 之间， 代表透明度。 */
+        border: 10px solid hsla(0, 0%, 100%, 0.5);
+      }
+      label {
+        color: #f4f0ea;
+      }
+      input[id='pb']:checked ~ div {
+        /* 默认情况下，背景的颜色会延伸至边框下层，这意味着我们设置的透明边框效果会被覆盖掉，在css3中，我们可以通过设置background-clip:padding-box来改变背景的默认行为，达到我们想要的效果。 */
+        background-clip: padding-box;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <input id="pb" type="checkbox" checked />
+      <label for="pb">padding-box(默认)</label>
+      <div>
+        A paragraph of filler text. La la la de dah de dah de dah de la.
+      </div>
+    </main>
+  </body>
+</html>

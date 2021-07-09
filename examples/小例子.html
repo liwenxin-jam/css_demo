@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>小例子</title>
+    <style type="text/css">
+      table.one {
+        table-layout: automatic;
+      }
+      table.two {
+        table-layout: fixed;
+      }
+      .ellipsis {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* a[href]:empty::before {
+        content: attr(href);
+      } */
+
+      a[href^='http']:empty::before {
+        content: attr(href);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>等宽表格单元格</h1>
+    <table class="one" border="1" width="100%">
+      <tr>
+        <td width="20%">1000000000000000000000000000</td>
+        <td width="40%">10000000</td>
+        <td width="40%">100</td>
+      </tr>
+    </table>
+
+    <br />
+
+    <table class="two" border="1" width="100%">
+      <tr>
+        <td width="20%">1000000000000000000000000000</td>
+        <!-- <td width="20%" class="ellipsis">1000000000000000000000000000</td> -->
+        <td width="40%">10000000</td>
+        <td width="40%">100</td>
+      </tr>
+    </table>
+
+    <h1>强制使用属性选择器显示空链接</h1>
+    <a href="https://www.baidu.com"></a>
+    <a href="#"></a>
+  </body>
+</html>
